@@ -1,2 +1,5 @@
 #### Helpful Commands: cd desktop/internproject/amplifyapp
 #### Admin IAM Info: 
+
+GraphQL endpoint: https://q23szy6czjbzvadw26f5jilj7e.appsync-api.us-east-1.amazonaws.com/graphql
+GraphQL API KEY: da2-uvg46sisavedhfol3g3rnjll7i
