@@ -8,3 +8,351 @@ type Note @model @auth(rules: [ { allow: public } ] ){
   description: String
   image: String
 }
+
+
+type QuantificationofBusinessImpact {
+  QuantificationofBusinessImpact: Float
+  BusinessImpactQuanitified: String
+  PrimaryBenefit: String
+  SecondaryBenefit: String
+  AdditionalComments: String
+}
+
+type UnderstandingofBusinessDriversandOutcomes {
+  UnderstandingofBusinessDriversandOutcomes: Float
+  BuisnessDriver1: String
+  BuisnessDriver2: String
+  BuisnessDriver3: String
+  AdditionalComments: String
+}
+
+type StrategicITDirection {
+  StrategicITDirection: Float
+  PrivateCloud: Boolean
+  HybridCloud: Boolean
+  AWSAllIn: Boolean
+  DigitalTransformation: Boolean
+  AdditionalComments: String
+}
+
+enum FutureState {
+  WATERFALL
+  AGILE
+  ATTAINED
+}
+
+enum CurrentState {
+  WATERFALL
+  AGILE
+}
+
+type Governance {
+  Governance: Float
+  Current: CurrentState
+  TransitionRoadMap: String
+  FutureState: FutureState
+  AdditionalComments: String
+}
+
+type WorkingBackwards {
+  WorkingBackwards: Float
+  WorkingBackwardsSessionDelivered: Stage1
+  AdditionalComments: String
+}
+
+type CultureOfInnovation {
+  CultureOfInnovation: Float
+  CultureOfInnovationSessionDelivered: Stage1
+  AdditionalComments: String
+}
+
+type GtoGEDescription @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Company: String
+  Quarter: String
+  Date: String
+}
+
+type ProcurementFinanceApprovalforSpent {
+  ApproverName: String
+  Stage: Stage4
+}
+
+type ProcurementFinanceApproval {
+  ProcursementFinanceApproval: Float
+  ProcurementFinanceApprovalforSpent: ProcurementFinanceApprovalforSpent
+  AdditionalComments: String
+}
+
+enum Stage4 {
+  INPROCESS
+  COMPLETED
+}
+
+type SecurityApprovalforPRODWorkloads {
+  ApproverName: String
+  Stage: Stage4
+}
+
+type SecurityApproval {
+  SecurityApproval: Float
+  SecurityApprovalforPRODWorkloads: SecurityApprovalforPRODWorkloads
+  AdditionalComments: String
+}
+
+type CCOE {
+  CCOE: Float
+  NewCloudRolesDefine: Boolean
+  AppTeamEngagementProcessEstablished: Boolean
+  CCOEEstablishedCommunityofPractice: Boolean
+  CloudOperationalStructure: Boolean
+  CloudCareerPathDefined: Boolean
+  CCOEDefined: Boolean
+  AdditionalComments: String
+}
+
+type AWSChampions {
+  TitleorRole: String
+  Name: String
+  Sponsor: Boolean
+}
+
+type ExecutiveSponsor {
+  ExecutiveSponsor: Float
+  AWSChampions: AWSChampions
+  AdditionalComments: String
+}
+
+type PublicReference {
+  PublicReference: Float
+  Stage: Stage1
+  AdditionalComments: String
+}
+
+type EA {
+  EA: Float
+  Stage: Stage1
+  AdditionalComments: String
+}
+
+type AWSSupportPlan {
+  AWSSupportPlan: Float
+  SupportPlan: String
+  AdditionalComments: String
+}
+
+type NDA {
+  NDA: Float
+  Stage: Stage1
+  AdditionalComments: String
+}
+
+type StagesofAdoption {
+  POC: Boolean
+  DevTestWorkload: Boolean
+  PRODWorkload: Boolean
+}
+
+type Adoption {
+  Adoption: Float
+  StagesOfAdoption: StagesofAdoption
+  AdditionalComments: String
+}
+
+type AdditonalServices {
+  GuardDuty: Boolean
+  ACM: Boolean
+  AmazonDetective: Boolean
+  OtherServices: String
+}
+
+type CoreServices {
+  SSO: Boolean
+  AWSIAM: Boolean
+  MFARootUser: Boolean
+  AWSConfig: Boolean
+  SecurityHub: Boolean
+  KMS: Boolean
+}
+
+type Security {
+  Security: Float
+  CoreServices: CoreServices
+  AdditonalServices: AdditonalServices
+  AdditionalComments: String
+}
+
+type CurrentSetupandISVDetails {
+  VPN: Boolean
+  Dx: Boolean
+}
+
+type Networking {
+  Networking: Float
+  CurrentSetupandISVDetails: CurrentSetupandISVDetails
+  AdditionalComments: String
+}
+
+enum Stage3 {
+  DEPLOYED
+  WAITINGCUSTOMERACTION
+  WAITINGONPARTNER
+}
+
+type ControlTowerDeployementorSimilarGovernance {
+  ControlTowerDeployementorSimilarGovernance: Float
+  Deployment: Stage3
+  AdditionalComments: String
+}
+
+enum Stage2 {
+  ASSESSMENT
+  INTRODUCTION
+  NEXTSTEPS
+}
+
+type PartnerProServeIntroduction {
+  PartnerProServeIntroduction: Float
+  Stage: Stage2
+  AdditonalComments: String
+}
+
+type IntroductiontoIncentivePrograms {
+  IntroductiontoIncentivePrograms: Float
+  Stage: Stage1
+  AdditionalComments: String
+}
+
+type TCODetailsorAWSCCURL {
+  Delivered: Boolean
+  CostCalculator: Float
+  TCOWorkdocsURL: AWSURL
+}
+
+type CostAssessmentTCOorWorkloadCostEstimateAWSCE {
+  CostAssessmentTCOorWorkloadCostEstimateAWSCE: Float
+  TCODetailsorAWSCCURL: TCODetailsorAWSCCURL
+  AdditionalComments: String
+}
+
+type WorkloadDeepDiveDiscussion {
+  Delivered: Boolean
+  UseCaseDetails: String
+}
+
+type TechnicalDeepDiveWhiteBoarding {
+  TechnicalDeepDiveWhiteBoarding: Float
+  WorkloadDeepDiveDiscussion: WorkloadDeepDiveDiscussion
+  AddditonalComments: String
+}
+
+type TrainingSessionCompleted {
+  ArchitectingOnAWS: Boolean
+  AWSOperations: Boolean
+  AWSSecurity: Boolean
+  DevOpsOnAWS: Boolean
+  DatabaseMigration: Boolean
+  AWSAIML: Boolean
+  DatalakeOnAWS: Boolean
+}
+
+type AWSTraining {
+  AWSTraining: Float
+  TrainingSessionCompleted: TrainingSessionCompleted
+  AdditionalComments: String
+}
+
+type FoundationalImmersionDays {
+  General: Boolean
+  Security: Boolean
+  Networking: Boolean
+  ControlTowerLandingZone: Boolean
+}
+
+type AWSImmersionDays {
+  AWSImmersionDays: Float
+  ImmersionDayType: FoundationalImmersionDays
+  AdvancedImmersionDays: String
+  AdditionalComments: String
+}
+
+type AWSWARSessionorArchitecturalReview {
+  AWSWARSessionorArchitecturalReview: Float
+  AdditionalComments: String
+  Stage: Stage1
+}
+
+enum Stage1 {
+  INTRODUCTION
+  SCHEDULED
+  DELIVERED
+}
+
+type AWSValuePropositionOverview {
+  AWSValuePropositionOverview: Float
+  AdditionalComments: String
+  Stage: Stage1
+}
+
+type CommericalReadiness {
+  id: ID
+  CommercialReadiness: Float
+  NDA: NDA
+  AWSSupportPlan: AWSSupportPlan
+  EA: EA
+  PublicReference: PublicReference
+  ExecutiveSponsor: ExecutiveSponsor
+  CCOE: CCOE
+  SecurityApproval: SecurityApprovalforPRODWorkloads
+  ProcurementFinanceApproval: ProcurementFinanceApproval
+  AdditionalComments: String
+}
+
+type StrategicDrivers {
+  id: ID
+  StrategicDrivers: Float
+  CultureOfInnovation: CultureOfInnovation
+  WorkingBackwards: WorkingBackwards
+  Governance: Governance
+  StrategicITDirection: StrategicITDirection
+  UnderstandingofBusinessDriversandOutcomes: UnderstandingofBusinessDriversandOutcomes
+  QuantificationofBusinessImpact: QuantificationofBusinessImpact
+  AdditionalComments: String
+}
+
+type TechnicalReadiness {
+  id: ID
+  TechnicalReadiness: Float
+  AWSValuePropositionOverview: AWSValuePropositionOverview
+  AWSWARSessionorArchitecturalReview: AWSWARSessionorArchitecturalReview
+  AWSImmersionDays: AWSImmersionDays
+  AWSTraining: AWSTraining
+  TechnicalDeepDiveWhiteBoarding: TechnicalDeepDiveWhiteBoarding
+  CostAssessmentTCOorWorkloadCostEstimateAWSCE: CostAssessmentTCOorWorkloadCostEstimateAWSCE
+  IntroductiontoIncentivePrograms: IntroductiontoIncentivePrograms
+  PartnerProServeIntroduction: PartnerProServeIntroduction
+  ControlTowerDeployementorSimilarGovernance: ControlTowerDeployementorSimilarGovernance
+  Networking: Networking
+  Security: SecurityApprovalforPRODWorkloads
+  Adoption: Adoption
+  AdditionalComments: String
+}
+
+type Dimension @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  StrategicDrivers: StrategicDrivers
+  CommericalReadiness: CommericalReadiness
+  TechnicalReadiness: TechnicalReadiness
+  OverallReadiness: Float
+  AssessmentAccountDetails: AssessmentAccountDetails @hasOne
+}
+
+type AssessmentAccountDetails @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  AccountName: String
+  AccountManagerName: String
+  AccountSAName: String
+  AccountSalesforceLink: AWSURL
+  CustomerSalesConsoleLine: AWSURL
+  ProServTrainingSpentT12M: Float
+}
