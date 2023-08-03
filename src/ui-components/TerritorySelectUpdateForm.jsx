@@ -8,12 +8,13 @@
 import * as React from "react";
 import { Button, Flex, Grid, SelectField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { TerritorySlider } from "../models";
+import { TerritorySelect } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function TerritorySlider(props) {
+export default function TerritorySelectUpdateForm(props) {
   const {
-    clearOnSuccess = true,
+    id: idProp,
+    territorySelect: territorySelectModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -23,16 +24,32 @@ export default function TerritorySlider(props) {
     ...rest
   } = props;
   const initialValues = {
-    Field0: "",
+    Territory: "",
   };
-  const [Field0, setField0] = React.useState(initialValues.Field0);
+  const [Territory, setTerritory] = React.useState(initialValues.Territory);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setField0(initialValues.Field0);
+    const cleanValues = territorySelectRecord
+      ? { ...initialValues, ...territorySelectRecord }
+      : initialValues;
+    setTerritory(cleanValues.Territory);
     setErrors({});
   };
+  const [territorySelectRecord, setTerritorySelectRecord] = React.useState(
+    territorySelectModelProp
+  );
+  React.useEffect(() => {
+    const queryData = async () => {
+      const record = idProp
+        ? await DataStore.query(TerritorySelect, idProp)
+        : territorySelectModelProp;
+      setTerritorySelectRecord(record);
+    };
+    queryData();
+  }, [idProp, territorySelectModelProp]);
+  React.useEffect(resetStateValues, [territorySelectRecord]);
   const validations = {
-    Field0: [],
+    Territory: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -60,7 +77,7 @@ export default function TerritorySlider(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          Field0,
+          Territory,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -90,12 +107,13 @@ export default function TerritorySlider(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(new TerritorySlider(modelFields));
+          await DataStore.save(
+            TerritorySelect.copyOf(territorySelectRecord, (updated) => {
+              Object.assign(updated, modelFields);
+            })
+          );
           if (onSuccess) {
             onSuccess(modelFields);
-          }
-          if (clearOnSuccess) {
-            resetStateValues();
           }
         } catch (err) {
           if (onError) {
@@ -103,77 +121,77 @@ export default function TerritorySlider(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "TerritorySlider")}
+      {...getOverrideProps(overrides, "TerritorySelectUpdateForm")}
       {...rest}
     >
       <SelectField
-        label="Field0 "
+        label="Territory"
         placeholder="Please select an option"
         isDisabled={false}
-        value={Field0}
+        value={Territory}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Field0: value,
+              Territory: value,
             };
             const result = onChange(modelFields);
-            value = result?.Field0 ?? value;
+            value = result?.Territory ?? value;
           }
-          if (errors.Field0?.hasError) {
-            runValidationTasks("Field0", value);
+          if (errors.Territory?.hasError) {
+            runValidationTasks("Territory", value);
           }
-          setField0(value);
+          setTerritory(value);
         }}
-        onBlur={() => runValidationTasks("Field0", Field0)}
-        errorMessage={errors.Field0?.errorMessage}
-        hasError={errors.Field0?.hasError}
-        {...getOverrideProps(overrides, "Field0")}
+        onBlur={() => runValidationTasks("Territory", Territory)}
+        errorMessage={errors.Territory?.errorMessage}
+        hasError={errors.Territory?.hasError}
+        {...getOverrideProps(overrides, "Territory")}
       >
         <option
-          children="MWGF01"
+          children="Mwgf01"
           value="MWGF01"
-          {...getOverrideProps(overrides, "Field0option0")}
+          {...getOverrideProps(overrides, "Territoryoption0")}
         ></option>
         <option
-          children="MWGF02"
+          children="Mwgf02"
           value="MWGF02"
-          {...getOverrideProps(overrides, "Field0option1")}
+          {...getOverrideProps(overrides, "Territoryoption1")}
         ></option>
         <option
-          children="MWGF03"
+          children="Mwgf03"
           value="MWGF03"
-          {...getOverrideProps(overrides, "Field0option2")}
+          {...getOverrideProps(overrides, "Territoryoption2")}
         ></option>
         <option
-          children="MWGF04"
+          children="Mwgf04"
           value="MWGF04"
-          {...getOverrideProps(overrides, "Field0option3")}
+          {...getOverrideProps(overrides, "Territoryoption3")}
         ></option>
         <option
-          children="MWGF05"
+          children="Mwgf05"
           value="MWGF05"
-          {...getOverrideProps(overrides, "Field0option4")}
+          {...getOverrideProps(overrides, "Territoryoption4")}
         ></option>
         <option
-          children="MWGF06"
+          children="Mwgf06"
           value="MWGF06"
-          {...getOverrideProps(overrides, "Field0option5")}
+          {...getOverrideProps(overrides, "Territoryoption5")}
         ></option>
         <option
-          children="MWGF07"
+          children="Mwgf07"
           value="MWGF07"
-          {...getOverrideProps(overrides, "Field0option6")}
+          {...getOverrideProps(overrides, "Territoryoption6")}
         ></option>
         <option
-          children="MWGF08"
+          children="Mwgf08"
           value="MWGF08"
-          {...getOverrideProps(overrides, "Field0option7")}
+          {...getOverrideProps(overrides, "Territoryoption7")}
         ></option>
         <option
-          children="MWGF09"
+          children="Mwgf09"
           value="MWGF09"
-          {...getOverrideProps(overrides, "Field0option8")}
+          {...getOverrideProps(overrides, "Territoryoption8")}
         ></option>
       </SelectField>
       <Flex
@@ -181,13 +199,14 @@ export default function TerritorySlider(props) {
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Clear"
+          children="Reset"
           type="reset"
           onClick={(event) => {
             event.preventDefault();
             resetStateValues();
           }}
-          {...getOverrideProps(overrides, "ClearButton")}
+          isDisabled={!(idProp || territorySelectModelProp)}
+          {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
           gap="15px"
@@ -197,7 +216,10 @@ export default function TerritorySlider(props) {
             children="Submit"
             type="submit"
             variation="primary"
-            isDisabled={Object.values(errors).some((e) => e?.hasError)}
+            isDisabled={
+              !(idProp || territorySelectModelProp) ||
+              Object.values(errors).some((e) => e?.hasError)
+            }
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>
         </Flex>
