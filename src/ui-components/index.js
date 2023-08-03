@@ -34,4 +34,6 @@ export { default as SideBar } from "./SideBar";
 export { default as SocialPost } from "./SocialPost";
 export { default as StandardCard } from "./StandardCard";
 export { default as TallCard } from "./TallCard";
+export { default as TerritorySlider } from "./TerritorySlider";
+export { default as TerritorySliderUpdateForm } from "./TerritorySliderUpdateForm";
 export { default as studioTheme } from "./studioTheme";

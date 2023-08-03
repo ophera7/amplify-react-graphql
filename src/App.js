@@ -3,6 +3,9 @@ import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API, Storage } from 'aws-amplify';
 import {
+  Territoryslider
+ } from './ui-components';
+import {
   Button,
   Flex,
   Heading,
@@ -95,6 +98,9 @@ const App = ({ signOut }) => {
           </Button>
         </Flex>
       </View>
+      <Territoryslider
+        onSubmit={fields => { /* Handle form submission */}}
+      />
       <View
         name="image"
         as="input"
