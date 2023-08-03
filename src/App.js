@@ -3,7 +3,7 @@ import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
 import { API, Storage } from 'aws-amplify';
 import {
-  Territoryslider
+  TerritorySlider
  } from './ui-components';
 import {
   Button,
@@ -98,9 +98,21 @@ const App = ({ signOut }) => {
           </Button>
         </Flex>
       </View>
-      <Territoryslider
-        onSubmit={fields => { /* Handle form submission */}}
+      <TerritorySlider
+          onSubmit={(fields) => {
+              // Example function to trim all string inputs
+              const updatedFields = {}
+              Object.keys(fields).forEach(key => {
+                  if (typeof fields[key] === 'string') {
+                      updatedFields[key] = fields[key].trim()
+                  } else {
+                      updatedFields[key] = fields[key]
+                  }
+              })
+              return updatedFields
+          }}
       />
+      <TerritorySlider />
       <View
         name="image"
         as="input"

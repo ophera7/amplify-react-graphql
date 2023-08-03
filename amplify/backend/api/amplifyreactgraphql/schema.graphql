@@ -3,6 +3,11 @@ type TerritorySlider @model @auth(rules: [{allow: public}]) {
   Field0: String
 }
 
+type TerritorySlider2 @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Field0: String
+}
+
 type Note @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
