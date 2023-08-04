@@ -36,6 +36,4 @@ export { default as StandardCard } from "./StandardCard";
 export { default as TallCard } from "./TallCard";
 export { default as TerritorySelectCreateForm } from "./TerritorySelectCreateForm";
 export { default as TerritorySelectUpdateForm } from "./TerritorySelectUpdateForm";
-export { default as TerritorySlider } from "./TerritorySlider";
-export { default as TerritorySliderUpdateForm } from "./TerritorySliderUpdateForm";
 export { default as studioTheme } from "./studioTheme";

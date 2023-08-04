@@ -15,11 +15,6 @@ type TerritorySelect @model @auth(rules: [{allow: public}]) {
   Territory: Territory!
 }
 
-type TerritorySlider @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  Field0: String
-}
-
 type Note @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!

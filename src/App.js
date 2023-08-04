@@ -76,6 +76,8 @@ const App = ({ signOut }) => {
     });
   }
 
+  
+
   return (
       <View className="App">
         <Heading level={1}>My Notes App</Heading>
