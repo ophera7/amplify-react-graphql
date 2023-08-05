@@ -1,3 +1,31 @@
+enum SoonToBeApprovedDistricts {
+  GULFCOAST
+  NORTHCENTRAL
+  SOUTHCENTRAL
+  OHIOVALLEY
+}
+
+enum ApprovedDistrictList {
+  MIDWEST
+}
+
+type District @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  ApprovedDistricts: ApprovedDistrictList!
+  SoonToBeApprovedDistricts: SoonToBeApprovedDistricts
+}
+
+enum CusomterList {
+  COMPANYX
+  COMPANYY
+  COMPANYZ
+}
+
+type CustomerSelect @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Customer: CusomterList!
+}
+
 enum Territory {
   MWGF01
   MWGF02
@@ -22,3 +50,13 @@ type Note @model @auth(rules: [{allow: public}]) {
   image: String
 }
  
+
+type AssessmentAccountDetails @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  AccountName: String
+  AccountManagerName: String
+  AccountSAName: String
+  AccountSalesforceLink: AWSURL
+  CustomerSalesConsoleLine: AWSURL
+  ProServTrainingSpentT12M: Float
+}

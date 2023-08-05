@@ -22,7 +22,9 @@ import {
 } from "./graphql/mutations";
 
 import {
-  TerritorySelectCreateForm 
+  TerritorySelectCreateForm,
+  CustomerSelectCreateForm,
+  DistrictCreateForm
  } from './ui-components';
 
 const App = ({ signOut }) => {
@@ -104,7 +106,9 @@ const App = ({ signOut }) => {
             </Button>
           </Flex>
         </View>
+        <DistrictCreateForm />
         <TerritorySelectCreateForm />
+        <CustomerSelectCreateForm />
         <View
           name="image"
           as="input"

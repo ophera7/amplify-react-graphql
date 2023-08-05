@@ -2,6 +2,23 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const SoonToBeApprovedDistricts = {
+  "GULFCOAST": "GULFCOAST",
+  "NORTHCENTRAL": "NORTHCENTRAL",
+  "SOUTHCENTRAL": "SOUTHCENTRAL",
+  "OHIOVALLEY": "OHIOVALLEY"
+};
+
+const ApprovedDistrictList = {
+  "MIDWEST": "MIDWEST"
+};
+
+const CusomterList = {
+  "COMPANYX": "COMPANYX",
+  "COMPANYY": "COMPANYY",
+  "COMPANYZ": "COMPANYZ"
+};
+
 const Territory = {
   "MWGF01": "MWGF01",
   "MWGF02": "MWGF02",
@@ -14,11 +31,16 @@ const Territory = {
   "MWGF09": "MWGF09"
 };
 
-const { TerritorySelect, TerritorySlider, Note } = initSchema(schema);
+const { District, CustomerSelect, TerritorySelect, Note, AssessmentAccountDetails } = initSchema(schema);
 
 export {
+  District,
+  CustomerSelect,
   TerritorySelect,
-  TerritorySlider,
   Note,
+  AssessmentAccountDetails,
+  SoonToBeApprovedDistricts,
+  ApprovedDistrictList,
+  CusomterList,
   Territory
 };

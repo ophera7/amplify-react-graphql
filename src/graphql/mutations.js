@@ -1,86 +1,158 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTerritorySlider = /* GraphQL */ `
-  mutation CreateTerritorySlider(
-    $input: CreateTerritorySliderInput!
-    $condition: ModelTerritorySliderConditionInput
+export const createDistrict = /* GraphQL */ `
+  mutation CreateDistrict(
+    $input: CreateDistrictInput!
+    $condition: ModelDistrictConditionInput
   ) {
-    createTerritorySlider(input: $input, condition: $condition) {
+    createDistrict(input: $input, condition: $condition) {
       id
-      Field0
+      ApprovedDistricts
+      SoonToBeApprovedDistricts
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const updateTerritorySlider = /* GraphQL */ `
-  mutation UpdateTerritorySlider(
-    $input: UpdateTerritorySliderInput!
-    $condition: ModelTerritorySliderConditionInput
+export const updateDistrict = /* GraphQL */ `
+  mutation UpdateDistrict(
+    $input: UpdateDistrictInput!
+    $condition: ModelDistrictConditionInput
   ) {
-    updateTerritorySlider(input: $input, condition: $condition) {
+    updateDistrict(input: $input, condition: $condition) {
       id
-      Field0
+      ApprovedDistricts
+      SoonToBeApprovedDistricts
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const deleteTerritorySlider = /* GraphQL */ `
-  mutation DeleteTerritorySlider(
-    $input: DeleteTerritorySliderInput!
-    $condition: ModelTerritorySliderConditionInput
+export const deleteDistrict = /* GraphQL */ `
+  mutation DeleteDistrict(
+    $input: DeleteDistrictInput!
+    $condition: ModelDistrictConditionInput
   ) {
-    deleteTerritorySlider(input: $input, condition: $condition) {
+    deleteDistrict(input: $input, condition: $condition) {
       id
-      Field0
+      ApprovedDistricts
+      SoonToBeApprovedDistricts
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const createTerritorySlider2 = /* GraphQL */ `
-  mutation CreateTerritorySlider2(
-    $input: CreateTerritorySlider2Input!
-    $condition: ModelTerritorySlider2ConditionInput
+export const createCustomerSelect = /* GraphQL */ `
+  mutation CreateCustomerSelect(
+    $input: CreateCustomerSelectInput!
+    $condition: ModelCustomerSelectConditionInput
   ) {
-    createTerritorySlider2(input: $input, condition: $condition) {
+    createCustomerSelect(input: $input, condition: $condition) {
       id
-      Field0
+      Customer
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const updateTerritorySlider2 = /* GraphQL */ `
-  mutation UpdateTerritorySlider2(
-    $input: UpdateTerritorySlider2Input!
-    $condition: ModelTerritorySlider2ConditionInput
+export const updateCustomerSelect = /* GraphQL */ `
+  mutation UpdateCustomerSelect(
+    $input: UpdateCustomerSelectInput!
+    $condition: ModelCustomerSelectConditionInput
   ) {
-    updateTerritorySlider2(input: $input, condition: $condition) {
+    updateCustomerSelect(input: $input, condition: $condition) {
       id
-      Field0
+      Customer
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
 `;
-export const deleteTerritorySlider2 = /* GraphQL */ `
-  mutation DeleteTerritorySlider2(
-    $input: DeleteTerritorySlider2Input!
-    $condition: ModelTerritorySlider2ConditionInput
+export const deleteCustomerSelect = /* GraphQL */ `
+  mutation DeleteCustomerSelect(
+    $input: DeleteCustomerSelectInput!
+    $condition: ModelCustomerSelectConditionInput
   ) {
-    deleteTerritorySlider2(input: $input, condition: $condition) {
+    deleteCustomerSelect(input: $input, condition: $condition) {
       id
-      Field0
+      Customer
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const createTerritorySelect = /* GraphQL */ `
+  mutation CreateTerritorySelect(
+    $input: CreateTerritorySelectInput!
+    $condition: ModelTerritorySelectConditionInput
+  ) {
+    createTerritorySelect(input: $input, condition: $condition) {
+      id
+      Territory
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const updateTerritorySelect = /* GraphQL */ `
+  mutation UpdateTerritorySelect(
+    $input: UpdateTerritorySelectInput!
+    $condition: ModelTerritorySelectConditionInput
+  ) {
+    updateTerritorySelect(input: $input, condition: $condition) {
+      id
+      Territory
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const deleteTerritorySelect = /* GraphQL */ `
+  mutation DeleteTerritorySelect(
+    $input: DeleteTerritorySelectInput!
+    $condition: ModelTerritorySelectConditionInput
+  ) {
+    deleteTerritorySelect(input: $input, condition: $condition) {
+      id
+      Territory
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -97,6 +169,9 @@ export const createNote = /* GraphQL */ `
       image
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -113,6 +188,9 @@ export const updateNote = /* GraphQL */ `
       image
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -129,6 +207,75 @@ export const deleteNote = /* GraphQL */ `
       image
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const createAssessmentAccountDetails = /* GraphQL */ `
+  mutation CreateAssessmentAccountDetails(
+    $input: CreateAssessmentAccountDetailsInput!
+    $condition: ModelAssessmentAccountDetailsConditionInput
+  ) {
+    createAssessmentAccountDetails(input: $input, condition: $condition) {
+      id
+      AccountName
+      AccountManagerName
+      AccountSAName
+      AccountSalesforceLink
+      CustomerSalesConsoleLine
+      ProServTrainingSpentT12M
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const updateAssessmentAccountDetails = /* GraphQL */ `
+  mutation UpdateAssessmentAccountDetails(
+    $input: UpdateAssessmentAccountDetailsInput!
+    $condition: ModelAssessmentAccountDetailsConditionInput
+  ) {
+    updateAssessmentAccountDetails(input: $input, condition: $condition) {
+      id
+      AccountName
+      AccountManagerName
+      AccountSAName
+      AccountSalesforceLink
+      CustomerSalesConsoleLine
+      ProServTrainingSpentT12M
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const deleteAssessmentAccountDetails = /* GraphQL */ `
+  mutation DeleteAssessmentAccountDetails(
+    $input: DeleteAssessmentAccountDetailsInput!
+    $condition: ModelAssessmentAccountDetailsConditionInput
+  ) {
+    deleteAssessmentAccountDetails(input: $input, condition: $condition) {
+      id
+      AccountName
+      AccountManagerName
+      AccountSAName
+      AccountSalesforceLink
+      CustomerSalesConsoleLine
+      ProServTrainingSpentT12M
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
