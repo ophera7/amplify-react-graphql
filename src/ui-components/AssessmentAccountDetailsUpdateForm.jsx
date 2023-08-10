@@ -28,7 +28,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
     AccountManagerName: "",
     AccountSAName: "",
     AccountSalesforceLink: "",
-    CustomerSalesConsoleLine: "",
+    CustomerSalesConsoleLink: "",
     ProServTrainingSpentT12M: "",
   };
   const [AccountName, setAccountName] = React.useState(
@@ -43,8 +43,8 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
   const [AccountSalesforceLink, setAccountSalesforceLink] = React.useState(
     initialValues.AccountSalesforceLink
   );
-  const [CustomerSalesConsoleLine, setCustomerSalesConsoleLine] =
-    React.useState(initialValues.CustomerSalesConsoleLine);
+  const [CustomerSalesConsoleLink, setCustomerSalesConsoleLink] =
+    React.useState(initialValues.CustomerSalesConsoleLink);
   const [ProServTrainingSpentT12M, setProServTrainingSpentT12M] =
     React.useState(initialValues.ProServTrainingSpentT12M);
   const [errors, setErrors] = React.useState({});
@@ -56,7 +56,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
     setAccountManagerName(cleanValues.AccountManagerName);
     setAccountSAName(cleanValues.AccountSAName);
     setAccountSalesforceLink(cleanValues.AccountSalesforceLink);
-    setCustomerSalesConsoleLine(cleanValues.CustomerSalesConsoleLine);
+    setCustomerSalesConsoleLink(cleanValues.CustomerSalesConsoleLink);
     setProServTrainingSpentT12M(cleanValues.ProServTrainingSpentT12M);
     setErrors({});
   };
@@ -76,8 +76,8 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
     AccountName: [],
     AccountManagerName: [],
     AccountSAName: [],
-    AccountSalesforceLink: [{ type: "URL" }],
-    CustomerSalesConsoleLine: [{ type: "URL" }],
+    AccountSalesforceLink: [],
+    CustomerSalesConsoleLink: [],
     ProServTrainingSpentT12M: [],
   };
   const runValidationTasks = async (
@@ -110,7 +110,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
           AccountManagerName,
           AccountSAName,
           AccountSalesforceLink,
-          CustomerSalesConsoleLine,
+          CustomerSalesConsoleLink,
           ProServTrainingSpentT12M,
         };
         const validationResponses = await Promise.all(
@@ -174,7 +174,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -203,7 +203,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName: value,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -234,7 +234,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName,
               AccountSAName: value,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -263,7 +263,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink: value,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -282,10 +282,10 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
         {...getOverrideProps(overrides, "AccountSalesforceLink")}
       ></TextField>
       <TextField
-        label="Customer sales console line"
+        label="Customer sales console link"
         isRequired={false}
         isReadOnly={false}
-        value={CustomerSalesConsoleLine}
+        value={CustomerSalesConsoleLink}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -294,26 +294,26 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine: value,
+              CustomerSalesConsoleLink: value,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
-            value = result?.CustomerSalesConsoleLine ?? value;
+            value = result?.CustomerSalesConsoleLink ?? value;
           }
-          if (errors.CustomerSalesConsoleLine?.hasError) {
-            runValidationTasks("CustomerSalesConsoleLine", value);
+          if (errors.CustomerSalesConsoleLink?.hasError) {
+            runValidationTasks("CustomerSalesConsoleLink", value);
           }
-          setCustomerSalesConsoleLine(value);
+          setCustomerSalesConsoleLink(value);
         }}
         onBlur={() =>
           runValidationTasks(
-            "CustomerSalesConsoleLine",
-            CustomerSalesConsoleLine
+            "CustomerSalesConsoleLink",
+            CustomerSalesConsoleLink
           )
         }
-        errorMessage={errors.CustomerSalesConsoleLine?.errorMessage}
-        hasError={errors.CustomerSalesConsoleLine?.hasError}
-        {...getOverrideProps(overrides, "CustomerSalesConsoleLine")}
+        errorMessage={errors.CustomerSalesConsoleLink?.errorMessage}
+        hasError={errors.CustomerSalesConsoleLink?.hasError}
+        {...getOverrideProps(overrides, "CustomerSalesConsoleLink")}
       ></TextField>
       <TextField
         label="Pro serv training spent t12 m"
@@ -332,7 +332,7 @@ export default function AssessmentAccountDetailsUpdateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M: value,
             };
             const result = onChange(modelFields);

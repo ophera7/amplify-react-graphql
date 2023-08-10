@@ -18,7 +18,7 @@ export declare type AssessmentAccountDetailsUpdateFormInputValues = {
     AccountManagerName?: string;
     AccountSAName?: string;
     AccountSalesforceLink?: string;
-    CustomerSalesConsoleLine?: string;
+    CustomerSalesConsoleLink?: string;
     ProServTrainingSpentT12M?: number;
 };
 export declare type AssessmentAccountDetailsUpdateFormValidationValues = {
@@ -26,7 +26,7 @@ export declare type AssessmentAccountDetailsUpdateFormValidationValues = {
     AccountManagerName?: ValidationFunction<string>;
     AccountSAName?: ValidationFunction<string>;
     AccountSalesforceLink?: ValidationFunction<string>;
-    CustomerSalesConsoleLine?: ValidationFunction<string>;
+    CustomerSalesConsoleLink?: ValidationFunction<string>;
     ProServTrainingSpentT12M?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
@@ -36,7 +36,7 @@ export declare type AssessmentAccountDetailsUpdateFormOverridesProps = {
     AccountManagerName?: PrimitiveOverrideProps<TextFieldProps>;
     AccountSAName?: PrimitiveOverrideProps<TextFieldProps>;
     AccountSalesforceLink?: PrimitiveOverrideProps<TextFieldProps>;
-    CustomerSalesConsoleLine?: PrimitiveOverrideProps<TextFieldProps>;
+    CustomerSalesConsoleLink?: PrimitiveOverrideProps<TextFieldProps>;
     ProServTrainingSpentT12M?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type AssessmentAccountDetailsUpdateFormProps = React.PropsWithChildren<{

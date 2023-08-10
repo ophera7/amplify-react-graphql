@@ -108,6 +108,7 @@ export default function TerritorySelectCreateForm(props) {
     >
       <SelectField
         label="Territory"
+        descriptiveText="*Please Identify One (1) Approved Territory*"
         placeholder="Please select an option"
         isDisabled={false}
         value={Territory}

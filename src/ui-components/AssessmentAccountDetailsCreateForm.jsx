@@ -27,7 +27,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
     AccountManagerName: "",
     AccountSAName: "",
     AccountSalesforceLink: "",
-    CustomerSalesConsoleLine: "",
+    CustomerSalesConsoleLink: "",
     ProServTrainingSpentT12M: "",
   };
   const [AccountName, setAccountName] = React.useState(
@@ -42,8 +42,8 @@ export default function AssessmentAccountDetailsCreateForm(props) {
   const [AccountSalesforceLink, setAccountSalesforceLink] = React.useState(
     initialValues.AccountSalesforceLink
   );
-  const [CustomerSalesConsoleLine, setCustomerSalesConsoleLine] =
-    React.useState(initialValues.CustomerSalesConsoleLine);
+  const [CustomerSalesConsoleLink, setCustomerSalesConsoleLink] =
+    React.useState(initialValues.CustomerSalesConsoleLink);
   const [ProServTrainingSpentT12M, setProServTrainingSpentT12M] =
     React.useState(initialValues.ProServTrainingSpentT12M);
   const [errors, setErrors] = React.useState({});
@@ -52,17 +52,17 @@ export default function AssessmentAccountDetailsCreateForm(props) {
     setAccountManagerName(initialValues.AccountManagerName);
     setAccountSAName(initialValues.AccountSAName);
     setAccountSalesforceLink(initialValues.AccountSalesforceLink);
-    setCustomerSalesConsoleLine(initialValues.CustomerSalesConsoleLine);
+    setCustomerSalesConsoleLink(initialValues.CustomerSalesConsoleLink);
     setProServTrainingSpentT12M(initialValues.ProServTrainingSpentT12M);
     setErrors({});
   };
   const validations = {
-    AccountName: [],
-    AccountManagerName: [],
-    AccountSAName: [],
-    AccountSalesforceLink: [{ type: "URL" }],
-    CustomerSalesConsoleLine: [{ type: "URL" }],
-    ProServTrainingSpentT12M: [],
+    AccountName: [{ type: "Required" }],
+    AccountManagerName: [{ type: "Required" }],
+    AccountSAName: [{ type: "Required" }],
+    AccountSalesforceLink: [{ type: "Required" }],
+    CustomerSalesConsoleLink: [{ type: "Required" }],
+    ProServTrainingSpentT12M: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -94,7 +94,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
           AccountManagerName,
           AccountSAName,
           AccountSalesforceLink,
-          CustomerSalesConsoleLine,
+          CustomerSalesConsoleLink,
           ProServTrainingSpentT12M,
         };
         const validationResponses = await Promise.all(
@@ -142,8 +142,13 @@ export default function AssessmentAccountDetailsCreateForm(props) {
       {...rest}
     >
       <TextField
-        label="Account name"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Account (Company) Name</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={AccountName}
         onChange={(e) => {
@@ -154,7 +159,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -171,8 +176,13 @@ export default function AssessmentAccountDetailsCreateForm(props) {
         {...getOverrideProps(overrides, "AccountName")}
       ></TextField>
       <TextField
-        label="Account manager name"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Account Manager Name</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={AccountManagerName}
         onChange={(e) => {
@@ -183,7 +193,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName: value,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -202,8 +212,13 @@ export default function AssessmentAccountDetailsCreateForm(props) {
         {...getOverrideProps(overrides, "AccountManagerName")}
       ></TextField>
       <TextField
-        label="Account sa name"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Account SA Name</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={AccountSAName}
         onChange={(e) => {
@@ -214,7 +229,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName,
               AccountSAName: value,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -231,8 +246,13 @@ export default function AssessmentAccountDetailsCreateForm(props) {
         {...getOverrideProps(overrides, "AccountSAName")}
       ></TextField>
       <TextField
-        label="Account salesforce link"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Account Salesforce Link</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         value={AccountSalesforceLink}
         onChange={(e) => {
@@ -243,7 +263,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink: value,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
@@ -262,10 +282,15 @@ export default function AssessmentAccountDetailsCreateForm(props) {
         {...getOverrideProps(overrides, "AccountSalesforceLink")}
       ></TextField>
       <TextField
-        label="Customer sales console line"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Customer Sales Console Link</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
-        value={CustomerSalesConsoleLine}
+        value={CustomerSalesConsoleLink}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -274,30 +299,35 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine: value,
+              CustomerSalesConsoleLink: value,
               ProServTrainingSpentT12M,
             };
             const result = onChange(modelFields);
-            value = result?.CustomerSalesConsoleLine ?? value;
+            value = result?.CustomerSalesConsoleLink ?? value;
           }
-          if (errors.CustomerSalesConsoleLine?.hasError) {
-            runValidationTasks("CustomerSalesConsoleLine", value);
+          if (errors.CustomerSalesConsoleLink?.hasError) {
+            runValidationTasks("CustomerSalesConsoleLink", value);
           }
-          setCustomerSalesConsoleLine(value);
+          setCustomerSalesConsoleLink(value);
         }}
         onBlur={() =>
           runValidationTasks(
-            "CustomerSalesConsoleLine",
-            CustomerSalesConsoleLine
+            "CustomerSalesConsoleLink",
+            CustomerSalesConsoleLink
           )
         }
-        errorMessage={errors.CustomerSalesConsoleLine?.errorMessage}
-        hasError={errors.CustomerSalesConsoleLine?.hasError}
-        {...getOverrideProps(overrides, "CustomerSalesConsoleLine")}
+        errorMessage={errors.CustomerSalesConsoleLink?.errorMessage}
+        hasError={errors.CustomerSalesConsoleLink?.hasError}
+        {...getOverrideProps(overrides, "CustomerSalesConsoleLink")}
       ></TextField>
       <TextField
-        label="Pro serv training spent t12 m"
-        isRequired={false}
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Pro Serv Training Spent T12M</span>
+            <span style={{ color: "red" }}>*</span>
+          </span>
+        }
+        isRequired={true}
         isReadOnly={false}
         type="number"
         step="any"
@@ -312,7 +342,7 @@ export default function AssessmentAccountDetailsCreateForm(props) {
               AccountManagerName,
               AccountSAName,
               AccountSalesforceLink,
-              CustomerSalesConsoleLine,
+              CustomerSalesConsoleLink,
               ProServTrainingSpentT12M: value,
             };
             const result = onChange(modelFields);
